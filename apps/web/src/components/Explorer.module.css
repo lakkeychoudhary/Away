@@ -1,50 +1,55 @@
 .section {
-  padding: var(--section-pad) 24px;
-  background: var(--canvas-parchment);
+  padding: var(--space-4xl) var(--space-lg);
+  position: relative;
+  z-index: 1;
 }
 
 .inner {
-  max-width: 720px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .eyebrow {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent-pink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--aurora);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin: 0 0 12px;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-sm);
 }
 
 .title {
-  margin: 0 0 12px;
-  font-size: 40px;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  color: var(--starlight);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-md);
 }
 
 .desc {
-  margin: 0 0 32px;
-  color: var(--body-muted);
-  max-width: 540px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.7;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-lg);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .label {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .inputRow {
@@ -53,105 +58,134 @@
 
 .input {
   width: 100%;
-  height: 48px;
-  padding: 0 18px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-pill);
-  background: white;
-  font-size: 17px;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  transition: all var(--duration-fast) var(--ease-smooth);
   outline: none;
 }
 
+.input::placeholder {
+  color: var(--text-muted);
+}
+
 .input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--aurora-glow);
 }
 
 .suggestions {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-lg);
+  background: var(--surface-glass-strong);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  z-index: 10;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  z-index: 50;
+  max-height: 240px;
+  overflow-y: auto;
 }
 
 .suggestion {
-  display: block;
   width: 100%;
-  padding: 12px 18px;
-  border: none;
-  background: white;
+  padding: var(--space-md) var(--space-lg);
   text-align: left;
-  font-size: 15px;
-  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.suggestion:last-child {
+  border-bottom: none;
 }
 
 .suggestion:hover {
-  background: var(--canvas-parchment);
+  background: var(--surface-card-hover);
+  color: var(--starlight);
+}
+
+.selected {
+  font-size: 0.8rem;
+  color: var(--aurora);
+  margin-top: var(--space-xs);
 }
 
 .yearRow {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: var(--space-md);
 }
 
 .yearInput {
-  width: 120px;
-  height: 48px;
-  padding: 0 18px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-pill);
-  background: white;
-  font-size: 17px;
+  width: 100px;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-family: var(--font-mono);
+  text-align: center;
+  outline: none;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.yearInput:focus {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--aurora-glow);
+}
+
+/* Remove number input spinners */
+.yearInput::-webkit-inner-spin-button,
+.yearInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.yearInput[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .yearHint {
-  font-size: 14px;
-  color: var(--body-muted);
-}
-
-.submit {
-  margin-top: 8px;
-  height: 52px;
-  border: none;
-  border-radius: var(--radius-pill);
-  background: var(--primary);
-  color: white;
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-.submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.submit:not(:disabled):active {
-  transform: scale(0.98);
+  font-size: 0.78rem;
+  color: var(--text-muted);
 }
 
 .error {
-  padding: 12px 16px;
+  padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-md);
-  background: rgba(255, 107, 157, 0.12);
-  color: #b4234f;
-  font-size: 15px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  color: var(--ember);
+  font-size: 0.9rem;
 }
 
-.selected {
-  font-size: 14px;
-  color: var(--body-muted);
-  margin-top: -8px;
+.submit {
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--nebula), var(--aurora));
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  box-shadow: 0 4px 20px rgba(0, 212, 170, 0.2);
+  align-self: flex-start;
+  opacity: 1;
 }
 
-.selected strong {
-  color: var(--ink);
+.submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 212, 170, 0.35);
+}
+
+.submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
