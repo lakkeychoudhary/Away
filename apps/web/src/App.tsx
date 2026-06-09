@@ -1,13 +1,15 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useRef } from "react";
 import type { GeocodeResult } from "@away/shared";
 import type { AwayResponse, SkyResponse } from "@away/shared";
-import { fetchAway, fetchSky } from "./lib/api";
+import { fetchAway, fetchSky, fetchStars } from "./lib/api";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Explorer } from "./components/Explorer";
 import { Results } from "./components/Results";
 import { About } from "./components/About";
 import { Footer } from "./components/Footer";
+import Starfield from "./components/Starfield";
+import StarMap from "./components/StarMap";
 import styles from "./App.module.css";
 
 export default function App() {
@@ -17,6 +19,9 @@ export default function App() {
   const [away, setAway] = useState<AwayResponse | null>(null);
   const [locationLabel, setLocationLabel] = useState("");
   const [activeYear, setActiveYear] = useState(2024);
+  const [stars, setStars] = useState<any[]>([]);
+  const [currentBortle, setCurrentBortle] = useState<number | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleAnalyze = useCallback(
     async (location: GeocodeResult, birthYear: number) => {
@@ -33,9 +38,20 @@ export default function App() {
         setAway(awayData);
         setLocationLabel(location.label);
         setActiveYear(skyData.metrics.currentYear);
+        setCurrentBortle(skyData.metrics.currentBortle);
+
+        // Fetch visible stars for this location
+        try {
+          const starsData = await fetchStars(
+            location.lat, location.lon, skyData.metrics.currentBortle
+          );
+          setStars(starsData.stars);
+        } catch {
+          // star catalog is optional
+        }
 
         setTimeout(() => {
-          document.getElementById("results")?.scrollIntoView({ behavior: "smooth" });
+          resultsRef.current?.scrollIntoView({ behavior: "smooth" });
         }, 100);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Something went wrong");
@@ -50,22 +66,34 @@ export default function App() {
 
   return (
     <div className={styles.page}>
-      <Nav />
-      <Hero />
-      <Explorer onAnalyze={handleAnalyze} loading={loading} error={error} />
-      {sky && away && (
-        <div id="results">
-          <Results
-            sky={sky}
-            away={away}
-            locationLabel={locationLabel}
-            activeYear={activeYear}
-            onYearChange={setActiveYear}
-          />
-        </div>
-      )}
-      <About />
-      <Footer />
+      <Starfield />
+      <div className={styles.content}>
+        <Nav hasResults={!!sky} />
+        <Hero />
+        <Explorer onAnalyze={handleAnalyze} loading={loading} error={error} />
+        
+        {sky && away && (
+          <div ref={resultsRef}>
+            <Results
+              sky={sky}
+              away={away}
+              locationLabel={locationLabel}
+              activeYear={activeYear}
+              onYearChange={setActiveYear}
+            />
+            {stars.length > 0 && currentBortle !== null && (
+              <StarMap
+                stars={stars}
+                bortle={currentBortle}
+                locationLabel={locationLabel}
+              />
+            )}
+          </div>
+        )}
+        
+        <About />
+        <Footer />
+      </div>
     </div>
   );
 }
