@@ -44,6 +44,15 @@ export function fetchAway(
   return request(`/api/v1/away?${params}`);
 }
 
+export async function fetchStars(lat: number, lon: number, bortle: number) {
+  const params = new URLSearchParams({
+    lat: String(lat),
+    lon: String(lon),
+    bortle: String(bortle),
+  });
+  return request<{ ok: boolean; stars: any[] }>(`/api/v1/stars?${params}`);
+}
+
 export function bortleDescription(bortle: number): string {
   const map: Record<number, string> = {
     1: "Excellent dark-sky site",

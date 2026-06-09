@@ -1,22 +1,64 @@
 :root {
-  --primary: #0066cc;
-  --primary-focus: #0071e3;
-  --primary-on-dark: #2997ff;
-  --accent-pink: #ff6b9d;
-  --accent-violet: #a78bfa;
-  --ink: #1d1d1f;
-  --body-muted: #7a7a7a;
-  --canvas: #ffffff;
-  --canvas-parchment: #f5f5f7;
-  --surface-dark: #0a0a12;
-  --surface-tile: #12121a;
-  --surface-tile-2: #1a1a24;
-  --on-dark: #ffffff;
-  --on-dark-muted: #cccccc;
-  --hairline: rgba(255, 255, 255, 0.08);
-  --radius-pill: 9999px;
-  --radius-lg: 18px;
-  --radius-md: 11px;
-  --section-pad: 80px;
-  --font: "Inter", system-ui, -apple-system, sans-serif;
+  /* Cosmic palette */
+  --space-void: #0a0a0f;
+  --space-deep: #0d0d16;
+  --surface-glass: rgba(18, 18, 30, 0.75);
+  --surface-glass-strong: rgba(12, 12, 24, 0.92);
+  --surface-card: rgba(22, 22, 40, 0.65);
+  --surface-card-hover: rgba(28, 28, 50, 0.8);
+  
+  /* Accents */
+  --starlight: #e8e8ff;
+  --starlight-muted: rgba(232, 232, 255, 0.6);
+  --nebula: #7c5cbf;
+  --nebula-glow: rgba(124, 92, 191, 0.3);
+  --aurora: #00d4aa;
+  --aurora-glow: rgba(0, 212, 170, 0.2);
+  --ember: #ff6b35;
+  --ember-glow: rgba(255, 107, 53, 0.3);
+  
+  /* Text */
+  --text-primary: #e8e8ff;
+  --text-secondary: rgba(232, 232, 255, 0.7);
+  --text-muted: rgba(232, 232, 255, 0.4);
+  --text-accent: #00d4aa;
+  
+  /* Borders */
+  --border-glass: rgba(232, 232, 255, 0.08);
+  --border-glass-hover: rgba(232, 232, 255, 0.15);
+  --border-accent: rgba(0, 212, 170, 0.3);
+  
+  /* Shadows */
+  --glow-nebula: 0 0 40px rgba(124, 92, 191, 0.15);
+  --glow-aurora: 0 0 30px rgba(0, 212, 170, 0.1);
+  --glow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --glow-card-hover: 0 12px 48px rgba(0, 0, 0, 0.6);
+  
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  
+  /* Timing */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 350ms;
+  --duration-slow: 600ms;
 }
