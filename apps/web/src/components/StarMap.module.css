@@ -1,0 +1,162 @@
+.section {
+  padding: var(--space-4xl) var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--starlight);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-xl);
+}
+
+.chart {
+  background: var(--surface-glass-strong);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  backdrop-filter: blur(32px);
+  overflow: hidden;
+}
+
+.chartInner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border-radius: var(--radius-md);
+  background: radial-gradient(ellipse at center, rgba(10, 10, 30, 0.5), rgba(5, 5, 15, 0.8));
+}
+
+.equator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 232, 255, 0.1), transparent);
+}
+
+.cardinal {
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: translate(-50%, -50%);
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.star:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 10;
+}
+
+.starName {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 6px;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.star:hover .starName {
+  opacity: 1;
+}
+
+.lostStar {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(255, 107, 53, 0.3);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.lostCross {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.lostCross::before,
+.lostCross::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 107, 53, 0.3);
+}
+
+.lostCross::before {
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+}
+
+.lostCross::after {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.dotVisible {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--starlight);
+  box-shadow: 0 0 6px rgba(232, 232, 255, 0.4);
+}
+
+.dotLost {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 107, 53, 0.4);
+}
