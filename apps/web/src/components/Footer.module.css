@@ -1,0 +1,38 @@
+.footer {
+  padding: 48px 24px;
+  background: var(--canvas-parchment);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.brand span {
+  color: var(--accent-pink);
+}
+
+.col {
+  font-size: 12px;
+  color: var(--body-muted);
+  line-height: 1.8;
+  max-width: 320px;
+}
+
+.col a {
+  color: var(--body-muted);
+}
+
+.col a:hover {
+  color: var(--primary);
+}
