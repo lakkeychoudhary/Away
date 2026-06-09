@@ -88,8 +88,11 @@ export default function Starfield() {
       const w = canvas.width;
       const h = canvas.height;
 
-      // Fade trail
-      ctx.fillStyle = 'rgba(10, 10, 15, 0.25)';
+      // Detect theme dynamically from root
+      const theme = document.documentElement.getAttribute("data-theme") || "dark";
+
+      // Fade trail (using dark or light background colors)
+      ctx.fillStyle = theme === "light" ? "rgba(248, 250, 252, 0.25)" : "rgba(10, 10, 15, 0.25)";
       ctx.fillRect(0, 0, w, h);
 
       const targetRotX = mouseRef.current.y * 0.03;
@@ -117,7 +120,9 @@ export default function Starfield() {
         if (sx < -50 || sx > w + 50 || sy < -50 || sy > h + 50) continue;
 
         const twinkle = Math.sin(time * star.twinkleSpeed + star.twinklePhase) * 0.35 + 0.65;
-        const alpha = star.opacity * twinkle * Math.min(1, scale * 2.5);
+        // In light theme, make stars barely visible (faded by light pollution)
+        const alphaMultiplier = theme === "light" ? 0.04 : 1.0;
+        const alpha = star.opacity * twinkle * Math.min(1, scale * 2.5) * alphaMultiplier;
         const size = star.size * scale * 0.8;
 
         if (size < 0.2) continue;

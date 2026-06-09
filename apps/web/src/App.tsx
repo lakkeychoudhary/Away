@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef } from "react";
+import { useCallback, useState, useRef, useEffect } from "react";
 import type { GeocodeResult } from "@away/shared";
 import type { AwayResponse, SkyResponse } from "@away/shared";
 import { fetchAway, fetchSky, fetchStars } from "./lib/api";
@@ -13,6 +13,21 @@ import StarMap from "./components/StarMap";
 import styles from "./App.module.css";
 
 export default function App() {
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  }, []);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sky, setSky] = useState<SkyResponse | null>(null);
@@ -68,7 +83,7 @@ export default function App() {
     <div className={styles.page}>
       <Starfield />
       <div className={styles.content}>
-        <Nav hasResults={!!sky} />
+        <Nav hasResults={!!sky} theme={theme} onToggleTheme={toggleTheme} />
         <Hero />
         <Explorer onAnalyze={handleAnalyze} loading={loading} error={error} />
         
@@ -80,6 +95,7 @@ export default function App() {
               locationLabel={locationLabel}
               activeYear={activeYear}
               onYearChange={setActiveYear}
+              theme={theme}
             />
             {stars.length > 0 && currentBortle !== null && (
               <StarMap

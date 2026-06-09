@@ -3,9 +3,11 @@ import styles from "./Nav.module.css";
 
 interface NavProps {
   hasResults?: boolean;
+  theme: string;
+  onToggleTheme: () => void;
 }
 
-export function Nav({ hasResults }: NavProps) {
+export function Nav({ hasResults, theme, onToggleTheme }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,6 +28,23 @@ export function Nav({ hasResults }: NavProps) {
         {hasResults && (
           <a href="#results" className={styles.link}>Your Sky</a>
         )}
+        <button
+          onClick={onToggleTheme}
+          className={styles.themeToggle}
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          aria-label="Toggle theme"
+          type="button"
+        >
+          {theme === "dark" ? (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          ) : (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          )}
+        </button>
         <a href="#explore" className={styles.cta}>
           Find darker skies
         </a>

@@ -38,7 +38,7 @@
   width: 100%;
   aspect-ratio: 2 / 1;
   border-radius: var(--radius-md);
-  background: radial-gradient(ellipse at center, rgba(10, 10, 30, 0.5), rgba(5, 5, 15, 0.8));
+  background: var(--star-chart-bg);
 }
 
 .equator {

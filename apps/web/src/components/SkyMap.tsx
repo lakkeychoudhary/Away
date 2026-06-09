@@ -10,19 +10,24 @@ interface SkyMapProps {
   timeline: SkyTimelinePoint[];
   activeYear: number;
   awayDest?: { lat: number; lon: number; bearingLabel: string; distanceKm: number } | null;
+  theme: string;
 }
 
 function nasaTileUrl(year: number): string {
   return `https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=VIIRS_Black_Marble&STYLES=default&FORMAT=image/png&TRANSPARENT=true&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&TIME=${year}-01-01`;
 }
 
-export function SkyMap({ lat, lon, timeline, activeYear, awayDest }: SkyMapProps) {
+export function SkyMap({ lat, lon, timeline, activeYear, awayDest, theme }: SkyMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markerRef = useRef<maplibregl.Marker | null>(null);
   const awayMarkerRef = useRef<maplibregl.Marker | null>(null);
 
   const point = timeline.find((t) => t.year === activeYear) ?? timeline.at(-1);
+
+  const basemapUrl = theme === "light"
+    ? "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png"
+    : "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png";
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -34,7 +39,7 @@ export function SkyMap({ lat, lon, timeline, activeYear, awayDest }: SkyMapProps
         sources: {
           osm: {
             type: "raster",
-            tiles: ["https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png"],
+            tiles: [basemapUrl],
             tileSize: 256,
             attribution: "© OpenStreetMap © CARTO",
           },
@@ -69,7 +74,7 @@ export function SkyMap({ lat, lon, timeline, activeYear, awayDest }: SkyMapProps
       markerRef.current = null;
       awayMarkerRef.current = null;
     };
-  }, [lat, lon]);
+  }, [lat, lon, theme]);
 
   useEffect(() => {
     const map = mapRef.current;

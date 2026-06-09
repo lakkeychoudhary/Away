@@ -38,21 +38,21 @@ export function SkyTimeline({
               <stop offset="100%" stopColor="#2997ff" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <CartesianGrid stroke="var(--border)" opacity={0.3} vertical={false} />
           <XAxis
             dataKey="year"
-            stroke="rgba(255,255,255,0.35)"
-            tick={{ fontSize: 12 }}
+            stroke="var(--text-muted)"
+            tick={{ fontSize: 11, fill: "var(--text-secondary)" }}
           />
           <YAxis
             yAxisId="left"
-            stroke="rgba(255,255,255,0.35)"
-            tick={{ fontSize: 12 }}
+            stroke="var(--text-muted)"
+            tick={{ fontSize: 11, fill: "var(--text-secondary)" }}
             label={{
               value: "Radiance",
               angle: -90,
               position: "insideLeft",
-              fill: "rgba(255,255,255,0.4)",
+              fill: "var(--text-muted)",
               fontSize: 11,
             }}
           />
@@ -60,23 +60,23 @@ export function SkyTimeline({
             yAxisId="right"
             orientation="right"
             domain={[1, 9]}
-            stroke="rgba(255,255,255,0.35)"
-            tick={{ fontSize: 12 }}
+            stroke="var(--text-muted)"
+            tick={{ fontSize: 11, fill: "var(--text-secondary)" }}
             label={{
               value: "Bortle",
               angle: 90,
               position: "insideRight",
-              fill: "rgba(255,255,255,0.4)",
+              fill: "var(--text-muted)",
               fontSize: 11,
             }}
           />
           <Tooltip
             contentStyle={{
-              background: "#1a1a24",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--bg-panel)",
+              border: "1px solid var(--border)",
               borderRadius: 12,
             }}
-            labelStyle={{ color: "#fff" }}
+            labelStyle={{ color: "var(--text-primary)" }}
           />
           <Area
             yAxisId="left"

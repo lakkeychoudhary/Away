@@ -12,6 +12,7 @@ interface ResultsProps {
   locationLabel: string;
   activeYear: number;
   onYearChange: (year: number) => void;
+  theme: string;
 }
 
 export function Results({
@@ -20,6 +21,7 @@ export function Results({
   locationLabel,
   activeYear,
   onYearChange,
+  theme,
 }: ResultsProps) {
   return (
     <section className={styles.section}>
@@ -43,6 +45,7 @@ export function Results({
           lon={sky.location.lon}
           timeline={sky.timeline}
           activeYear={activeYear}
+          theme={theme}
           awayDest={
             away.destination
               ? {
