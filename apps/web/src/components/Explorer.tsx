@@ -15,18 +15,25 @@ export function Explorer({ onAnalyze, loading, error }: ExplorerProps) {
   const [selected, setSelected] = useState<GeocodeResult | null>(null);
   const [birthYear, setBirthYear] = useState(2005);
   const [searching, setSearching] = useState(false);
+  const [geocodeError, setGeocodeError] = useState<string | null>(null);
 
   const search = useCallback(async (q: string) => {
     if (q.length < 2) {
       setSuggestions([]);
+      setGeocodeError(null);
       return;
     }
     setSearching(true);
+    setGeocodeError(null);
     try {
       const res = await geocode(q);
       setSuggestions(res.results);
+      if (res.results.length === 0) {
+        setGeocodeError("No cities found. Try another query.");
+      }
     } catch {
       setSuggestions([]);
+      setGeocodeError("Unable to fetch locations. Please verify the API is running.");
     } finally {
       setSearching(false);
     }
@@ -45,6 +52,7 @@ export function Explorer({ onAnalyze, loading, error }: ExplorerProps) {
     setSelected(place);
     setQuery(place.label);
     setSuggestions([]);
+    setGeocodeError(null);
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -79,6 +87,7 @@ export function Explorer({ onAnalyze, loading, error }: ExplorerProps) {
                 onChange={(e) => {
                   setQuery(e.target.value);
                   setSelected(null);
+                  setGeocodeError(null);
                 }}
                 autoComplete="off"
               />
@@ -97,6 +106,11 @@ export function Explorer({ onAnalyze, loading, error }: ExplorerProps) {
                 </div>
               )}
             </div>
+            {geocodeError && (
+              <p className={styles.geocodeError}>
+                {geocodeError}
+              </p>
+            )}
             {selected && (
               <p className={styles.selected}>
                 Selected: <strong>{selected.label}</strong>

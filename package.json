@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "npm run dev:api & npm run dev:web",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
     "dev:api": "npm run dev -w apps/api",
     "dev:web": "npm run dev -w apps/web",
     "build": "npm run build -w packages/shared && npm run build -w apps/api && npm run build -w apps/web",
@@ -17,5 +17,16 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@types/three": "^0.184.1",
+    "framer-motion": "^12.40.0",
+    "recharts": "^3.8.1",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }

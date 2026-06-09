@@ -163,6 +163,12 @@
   font-size: 0.85rem;
 }
 
+.geocodeError {
+  color: var(--accent-red);
+  font-size: 0.8rem;
+  margin-top: var(--space-xs);
+}
+
 .submit {
   padding: 12px 24px;
   border-radius: var(--radius-md);
