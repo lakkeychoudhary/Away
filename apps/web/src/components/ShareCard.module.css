@@ -1,25 +1,21 @@
 .card {
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   border-radius: var(--radius-lg);
-  background: var(--surface-glass-strong);
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(24px);
-  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
 }
 
 .headline {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--starlight);
-  letter-spacing: -0.02em;
+  color: var(--text-primary);
   line-height: 1.3;
 }
 
 .subline {
-  margin: var(--space-sm) 0 var(--space-lg);
+  margin: var(--space-xs) 0 var(--space-lg);
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .stats {
@@ -30,11 +26,10 @@
 }
 
 .stat {
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-md);
-  background: var(--surface-card);
-  border: 1px solid var(--border-glass);
-  min-width: 100px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
 }
 
 .statLabel {
@@ -46,10 +41,10 @@
 
 .statValue {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: var(--aurora);
-  margin-top: var(--space-xs);
+  color: var(--accent);
+  margin-top: 2px;
 }
 
 .actions {
@@ -60,34 +55,26 @@
 
 .copyBtn {
   padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--nebula), var(--aurora));
+  border-radius: var(--radius-md);
+  background: var(--accent);
   color: white;
   font-size: 0.85rem;
   font-weight: 500;
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-smooth);
-  box-shadow: 0 4px 15px rgba(0, 212, 170, 0.2);
+  transition: background var(--fast) var(--ease);
 }
 
 .copyBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 25px rgba(0, 212, 170, 0.35);
+  background: #3b82f6;
 }
 
 .copied {
   font-size: 0.8rem;
-  color: var(--aurora);
+  color: var(--accent-green);
   align-self: center;
-  margin-left: var(--space-sm);
 }
 
 .brand {
   margin-top: var(--space-md);
   font-size: 0.7rem;
   color: var(--text-muted);
-}
-
-.brand strong {
-  color: var(--aurora);
 }

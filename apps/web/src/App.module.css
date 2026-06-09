@@ -1,10 +1,13 @@
 .page {
   position: relative;
   min-height: 100vh;
-  background: var(--space-void);
+  background: var(--crt-bg);
 }
 
 .content {
   position: relative;
   z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
 }

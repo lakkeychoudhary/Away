@@ -1,57 +1,50 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--space-md);
 }
 
 .card {
   padding: var(--space-lg);
   border-radius: var(--radius-lg);
-  background: var(--surface-card);
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(16px);
-  transition: all var(--duration-normal) var(--ease-smooth);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color var(--fast) var(--ease);
 }
 
 .card:hover {
-  background: var(--surface-card-hover);
-  border-color: var(--border-glass-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--glow-card-hover);
+  border-color: var(--text-muted);
 }
 
 .value {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   font-family: var(--font-display);
   letter-spacing: -0.03em;
   line-height: 1;
-  margin-bottom: var(--space-sm);
-  color: var(--aurora);
+  margin-bottom: var(--space-xs);
+  color: var(--text-primary);
 }
 
 .valuePink {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   font-family: var(--font-display);
   letter-spacing: -0.03em;
   line-height: 1;
-  margin-bottom: var(--space-sm);
-  background: linear-gradient(135deg, var(--ember), var(--nebula));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: var(--space-xs);
+  color: var(--accent-pink);
 }
 
 .label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
 .detail {
   margin-top: var(--space-xs);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
 }

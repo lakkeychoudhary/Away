@@ -4,93 +4,60 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: var(--space-md) var(--space-xl);
+  padding: var(--space-sm) var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: all var(--duration-normal) var(--ease-smooth);
-  background: transparent;
-}
-
-.scrolled {
-  background: var(--surface-glass-strong);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border-bottom: 1px solid var(--border-glass);
-  padding: var(--space-sm) var(--space-xl);
+  background: rgba(10, 10, 16, 0.95);
+  border-bottom: 1px solid var(--border);
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  text-decoration: none;
-  color: var(--starlight);
+  text-decoration: none !important;
+  color: var(--text-primary) !important;
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-.star {
-  font-size: 1.4rem;
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-.logoText {
-  background: linear-gradient(135deg, var(--starlight), var(--aurora));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.logo span {
+  color: var(--accent);
 }
 
 .links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .link {
-  color: var(--text-secondary);
-  text-decoration: none;
+  color: var(--text-secondary) !important;
   font-size: 0.85rem;
-  transition: color var(--duration-fast) var(--ease-smooth);
-  position: relative;
-}
-
-.link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--aurora);
-  transition: width var(--duration-fast) var(--ease-smooth);
+  text-decoration: none !important;
+  transition: color var(--fast) var(--ease);
 }
 
 .link:hover {
-  color: var(--starlight);
-}
-
-.link:hover::after {
-  width: 100%;
+  color: var(--text-primary) !important;
 }
 
 .cta {
-  background: linear-gradient(135deg, var(--nebula), var(--aurora));
-  color: white;
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: white !important;
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
   font-size: 0.8rem;
   font-weight: 500;
-  text-decoration: none;
-  transition: all var(--duration-fast) var(--ease-smooth);
-  box-shadow: 0 4px 20px rgba(0, 212, 170, 0.2);
+  text-decoration: none !important;
+  transition: all var(--fast) var(--ease);
 }
 
 .cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 30px rgba(0, 212, 170, 0.35);
-  color: white;
+  background: #3b82f6;
+  color: white !important;
+  text-decoration: none !important;
 }

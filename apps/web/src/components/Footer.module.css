@@ -1,43 +1,31 @@
 .footer {
-  padding: var(--space-2xl) var(--space-lg);
+  padding: var(--space-xl) var(--space-md);
   position: relative;
   z-index: 1;
-  border-top: 1px solid var(--border-glass);
-  margin-top: var(--space-2xl);
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-xl);
 }
 
 .inner {
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
 
 .brand {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--starlight);
+  color: var(--text-primary);
   margin-bottom: var(--space-md);
-  letter-spacing: -0.02em;
-}
-
-.brand span {
-  color: var(--aurora);
-  animation: pulseGlow 3s ease-in-out infinite;
 }
 
 .col {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   line-height: 1.8;
 }
 
 .col a {
-  color: var(--aurora);
-  text-decoration: none;
-}
-
-.col a:hover {
-  color: var(--starlight);
-  text-decoration: underline;
+  color: var(--accent);
 }

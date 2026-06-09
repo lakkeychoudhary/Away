@@ -1,61 +1,59 @@
 .section {
-  padding: var(--space-4xl) var(--space-lg);
+  padding: var(--space-3xl) var(--space-md);
   position: relative;
   z-index: 1;
 }
 
 .inner {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .header {
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--aurora);
+  font-size: 0.7rem;
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--starlight);
-  letter-spacing: -0.03em;
-  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
 }
 
 .location {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .shareSection {
-  margin-top: var(--space-2xl);
-  text-align: center;
+  margin-top: var(--space-xl);
 }
 
 .shareLabel {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-bottom: var(--space-md);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-align: center;
 }
 
 .disclaimer {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   text-align: center;
-  margin-top: var(--space-2xl);
-  max-width: 500px;
+  margin-top: var(--space-xl);
+  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;

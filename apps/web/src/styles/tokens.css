@@ -1,35 +1,32 @@
 :root {
-  /* Retro station palette — warm CRT glow, worn paper, phosphor green */
-  --crt-bg: #0f0f14;
-  --crt-bg-light: #1a1a22;
-  --panel-bg: #15151e;
-  --panel-border: #2a2a3a;
-  --phosphor-green: #3bfa8a;
-  --phosphor-dim: #1a7a3a;
-  --amber: #ffb347;
-  --amber-dim: #8a5a1a;
-  --paper: #e8dcc8;
-  --paper-dark: #c4b8a4;
-  --ink: #2a2018;
-  --chart-grid: rgba(59, 250, 138, 0.12);
-  --chart-grid-bold: rgba(59, 250, 138, 0.25);
-  --terminal-green: #3bfa8a;
-  --terminal-prompt: #ffb347;
-  --alert-red: #ff4433;
-  --tape-yellow: #ffdd44;
+  /* Dark mode — high contrast, readable */
+  --bg: #0a0a10;
+  --bg-panel: #12121c;
+  --bg-card: #1a1a28;
+  --bg-input: #0e0e18;
+  --border: #2a2a3e;
+  --border-focused: #4a9eff;
   
-  /* Text */
-  --text-crt: #3bfa8a;
-  --text-crt-dim: rgba(59, 250, 138, 0.5);
-  --text-amber: #ffb347;
-  --text-paper: #e8dcc8;
-  --text-muted: rgba(232, 220, 200, 0.4);
+  /* Accents */
+  --accent: #4a9eff;
+  --accent-glow: rgba(74, 158, 255, 0.15);
+  --accent-green: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-pink: #f472b6;
+  --accent-red: #f87171;
+  
+  /* Text — high contrast */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-accent: #4a9eff;
+  --text-green: #34d399;
+  --text-amber: #fbbf24;
   
   /* Typography */
-  --font-display: 'Space Grotesk', 'Courier New', monospace;
-  --font-body: 'Courier New', 'IBM Plex Mono', monospace;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-  --font-matrix: 'VT323', 'Courier New', monospace;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
   /* Spacing */
   --space-xs: 4px;
@@ -40,18 +37,15 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   
-  /* Radius — sharp, industrial */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-panel: 8px;
   
-  /* Glows */
-  --glow-scanline: 0 0 2px rgba(59, 250, 138, 0.1);
-  --glow-text: 0 0 6px rgba(59, 250, 138, 0.3);
-  
   /* Timing */
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --fast: 150ms;
+  --normal: 300ms;
 }

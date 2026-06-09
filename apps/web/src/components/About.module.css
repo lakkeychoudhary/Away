@@ -1,53 +1,41 @@
 .section {
-  padding: var(--space-4xl) var(--space-lg);
+  padding: var(--space-3xl) var(--space-md);
   position: relative;
   z-index: 1;
 }
 
 .inner {
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--starlight);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
   text-align: center;
-  margin-bottom: var(--space-2xl);
-  letter-spacing: -0.03em;
+  margin-bottom: var(--space-xl);
 }
 
 .block {
-  background: var(--surface-card);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  margin-bottom: var(--space-lg);
-  backdrop-filter: blur(16px);
-  transition: all var(--duration-normal) var(--ease-smooth);
-}
-
-.block:hover {
-  background: var(--surface-card-hover);
-  border-color: var(--border-glass-hover);
-  box-shadow: var(--glow-card-hover);
-  transform: translateY(-2px);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .block h3 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--aurora);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
 }
 
 .block p {
   color: var(--text-secondary);
+  font-size: 0.9rem;
   line-height: 1.7;
-  font-size: 0.95rem;
 }
 
 .list {
@@ -57,26 +45,17 @@
 }
 
 .list li {
-  position: relative;
   padding-left: var(--space-lg);
   color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: var(--space-sm);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-xs);
+  position: relative;
 }
 
 .list li::before {
-  content: '✦';
+  content: '>';
   position: absolute;
   left: 0;
-  color: var(--nebula);
-  font-size: 0.7rem;
-}
-
-.code {
+  color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.85em;
-  color: var(--aurora);
-  background: rgba(0, 212, 170, 0.1);
-  padding: 2px 6px;
-  border-radius: 4px;
 }
