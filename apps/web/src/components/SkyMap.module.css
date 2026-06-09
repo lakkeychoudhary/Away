@@ -1,10 +1,16 @@
 .mapWrap {
-  margin-top: 24px;
+  margin-top: var(--space-lg);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--border-glass);
   height: 320px;
   position: relative;
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.mapWrap:hover {
+  border-color: var(--border-glass-hover);
+  box-shadow: var(--glow-card);
 }
 
 .map {
@@ -14,27 +20,30 @@
 
 .yearBadge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 8px 14px;
-  border-radius: var(--radius-pill);
-  background: rgba(10, 10, 18, 0.85);
-  backdrop-filter: blur(8px);
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
+  top: var(--space-md);
+  left: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  background: var(--surface-glass-strong);
+  backdrop-filter: blur(12px);
+  color: var(--starlight);
+  font-size: 0.85rem;
+  font-weight: 500;
   z-index: 1;
+  border: 1px solid var(--border-glass);
+  font-family: var(--font-mono);
 }
 
 .bortleBadge {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 8px 14px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 107, 157, 0.2);
-  border: 1px solid rgba(255, 107, 157, 0.4);
-  color: #ffb3cc;
-  font-size: 14px;
+  top: var(--space-md);
+  right: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  background: rgba(255, 107, 53, 0.15);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  color: var(--ember);
+  font-size: 0.85rem;
   z-index: 1;
+  font-family: var(--font-mono);
 }
